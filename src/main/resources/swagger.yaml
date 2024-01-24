@@ -1,0 +1,570 @@
+openapi: 3.0.3
+info:
+  title: YMS - OpenAPI 3.0
+  description: |-
+    Oracle Recipe API
+    
+    Some useful links:
+  termsOfService: http://swagger.io/terms/
+  contact:
+    email: marion.delmas12@gmail.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 0.0.1
+externalDocs:
+  description: Find out more about Swagger
+  url: http://swagger.io
+servers:
+  - url: https://dev/api/1
+  - url: https://prod/api/1
+tags:
+  - name: Recipe
+    description: Object constituted of recipe details
+  - name: Event
+paths:
+  /recipes:
+    get:
+      tags:
+        - Recipe
+      summary: Get recipes
+      description: Get recipes
+      operationId: getRecipes
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/Recipe"
+  /recipes/{recipeId}:
+    get:
+      tags:
+        - Recipe
+      summary: Get a recipe
+      description: Get an existing recipe by Id
+      operationId: getRecipe
+      parameters:
+        - name: recipeId
+          in: path
+          description: Recipe ID
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Recipe'
+
+  /event:
+    post:
+      tags:
+        - Event
+      summary: Process CloudEvent
+      description: Process CloudEvent
+      operationId: processEvent
+      parameters:
+        - $ref: '#/components/parameters/contentTypeHeader'
+        - $ref: '#/components/parameters/idHeader'
+        - $ref: '#/components/parameters/sourceHeader'
+        - $ref: '#/components/parameters/specversionHeader'
+        - $ref: '#/components/parameters/typeHeader'
+        - $ref: '#/components/parameters/dataschemaHeader'
+        - $ref: '#/components/parameters/subjectHeader'
+        - $ref: '#/components/parameters/timeHeader'
+        - $ref: '#/components/parameters/correlationidHeader'
+      requestBody:
+        description: Event
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Event'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseCloudEvent'
+
+  /event#recipe.create.v1:
+    post:
+      tags:
+        - Event
+      summary: com.example.recipe.create.v1
+      description: Create a recipe
+      operationId: createRecipe
+      parameters:
+        - $ref: '#/components/parameters/contentTypeHeader'
+        - $ref: '#/components/parameters/idHeader'
+        - $ref: '#/components/parameters/sourceHeader'
+        - $ref: '#/components/parameters/specversionHeader'
+        - $ref: '#/components/parameters/typeHeader'
+        - $ref: '#/components/parameters/dataschemaHeader'
+        - $ref: '#/components/parameters/subjectHeader'
+        - $ref: '#/components/parameters/timeHeader'
+        - $ref: '#/components/parameters/correlationidHeader'
+      requestBody:
+        description: Event
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RecipeCreateEvent'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RecipeCreateResponse'
+
+  /event#recipe.cancel.v1:
+    post:
+      tags:
+        - Event
+      summary: com.example.recipe.cancel.v1
+      description: Cancel a recipe
+      operationId: cancelRecipe
+      parameters:
+        - $ref: '#/components/parameters/contentTypeHeader'
+        - $ref: '#/components/parameters/idHeader'
+        - $ref: '#/components/parameters/sourceHeader'
+        - $ref: '#/components/parameters/specversionHeader'
+        - $ref: '#/components/parameters/typeHeader'
+        - $ref: '#/components/parameters/dataschemaHeader'
+        - $ref: '#/components/parameters/subjectHeader'
+        - $ref: '#/components/parameters/timeHeader'
+        - $ref: '#/components/parameters/correlationidHeader'
+      requestBody:
+        description: Event
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RecipeCancelEvent'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseCloudEvent'
+
+  /event#recipe.active.v1:
+    post:
+      tags:
+        - Event
+      summary: com.example.recipe.active.v1
+      description: (Re)Activate a recipe
+      operationId: activateRecipe
+      parameters:
+        - $ref: '#/components/parameters/contentTypeHeader'
+        - $ref: '#/components/parameters/idHeader'
+        - $ref: '#/components/parameters/sourceHeader'
+        - $ref: '#/components/parameters/specversionHeader'
+        - $ref: '#/components/parameters/typeHeader'
+        - $ref: '#/components/parameters/dataschemaHeader'
+        - $ref: '#/components/parameters/subjectHeader'
+        - $ref: '#/components/parameters/timeHeader'
+        - $ref: '#/components/parameters/correlationidHeader'
+      requestBody:
+        description: Event
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RecipeActiveEvent'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseCloudEvent'
+
+  /event#recipe.ingredient.add.v1:
+    post:
+      tags:
+        - Event
+      summary: com.example.recipe.ingredient.add.v1
+      description: Add an ingredient to a recipe.
+      operationId: addIngredient
+      parameters:
+        - $ref: '#/components/parameters/contentTypeHeader'
+        - $ref: '#/components/parameters/idHeader'
+        - $ref: '#/components/parameters/sourceHeader'
+        - $ref: '#/components/parameters/specversionHeader'
+        - $ref: '#/components/parameters/typeHeader'
+        - $ref: '#/components/parameters/dataschemaHeader'
+        - $ref: '#/components/parameters/subjectHeader'
+        - $ref: '#/components/parameters/timeHeader'
+        - $ref: '#/components/parameters/correlationidHeader'
+      requestBody:
+        description: Event
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddIngredientRecipeEvent'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseCloudEvent'
+
+  /event#recipe.instruction.add.v1:
+    post:
+      tags:
+        - Event
+      summary: com.example.recipe.instruction.add.v1
+      description: Add an instruction to a recipe.
+      operationId: addInstruction
+      parameters:
+        - $ref: '#/components/parameters/contentTypeHeader'
+        - $ref: '#/components/parameters/idHeader'
+        - $ref: '#/components/parameters/sourceHeader'
+        - $ref: '#/components/parameters/specversionHeader'
+        - $ref: '#/components/parameters/typeHeader'
+        - $ref: '#/components/parameters/dataschemaHeader'
+        - $ref: '#/components/parameters/subjectHeader'
+        - $ref: '#/components/parameters/timeHeader'
+        - $ref: '#/components/parameters/correlationidHeader'
+      requestBody:
+        description: Event
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddInstructionRecipeEvent'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseCloudEvent'
+
+components:
+  parameters:
+    ############################
+    ######### Headers ##########
+    ############################
+    contentTypeHeader:
+      name: Content-Type
+      in: header
+      schema:
+        type: string
+        example: "application/cloudevents+json"
+    idHeader:
+      name: ce-id
+      in: header
+      schema:
+        type: string
+        example: "b88dd7d0-200c-4ca9-a832-be2d8bc68ca7"
+      required: true
+    sourceHeader:
+      name: ce-source
+      in: header
+      schema:
+        type: string
+        example: "grn:driverapp.mymodule:android12.04:FR0084lzxp:v2.5.15"
+    specversionHeader:
+      in: header
+      name: ce-specversion
+      schema:
+        type: string
+        example: "1.0"
+    typeHeader:
+      in: header
+      name: ce-type
+      schema:
+        type: string
+        example: "com.example.recipe.create.v1"
+      required: true
+    dataschemaHeader:
+      in: header
+      name: ce-dataschema
+      schema:
+        type: string
+        example: "https://gitlab.hq.gls-france.com/fr-developpement-it/devops/oracle-parcel-deployment/-/blob/master/terraform/kafka-resources/gls.france.parcel.public.event.scan.dimension-value.json"
+    subjectHeader:
+      in: header
+      name: ce-subject
+      schema:
+        type: string
+        description: "Functional resource ID."
+        example: "TRACKID#00HTX588"
+    timeHeader:
+      in: header
+      name: ce-time
+      schema:
+        type: string
+        format: date-time
+        example: "2020-07-10T13:25:10.900Z"
+    correlationidHeader:
+      in: header
+      name: ce-correlationid
+      schema:
+        type: string
+        example: "53e27eff-7cf5-4ab6-91cd-86a6c9c97f39"
+
+  schemas:
+    ############################
+    ########## Events ##########
+    ############################
+
+    CloudEvent:
+      required:
+        - eventType
+        - eventPassport
+      type: object
+      properties:
+        eventType:
+          type: string
+        eventPassport:
+          type:
+          $ref: '#/components/schemas/EventPassport'
+    EventPassport:
+      required:
+        - eventUid
+      type: object
+      properties:
+        eventUid:
+          type: string
+          example: "f17de195-b297-49bd-89f5-6f78bcbf5694"
+        eventHappeningTime:
+          type: string
+          format: date-time
+          example: "2016-06-29T14:41:36.625Z"
+        eventSource:
+          type: string
+          example: "grn:anyIdIrovidedByMechatronicsThatCouldIdentifyTheProgramNameTheInstanceAndTheVersion"
+        externalId:
+          type: string
+          example: "d74aa37e-341a-450a-b5b9-27a3995ae89c"
+          description: "Resource id of an external source. Could be C3 ID or AS400 ID."
+
+    ###### Request Events ######
+    Event:
+      type: object
+      oneOf:
+        - $ref: '#/components/schemas/CloudEvent'
+        - $ref: '#/components/schemas/RecipeCreateEvent'
+        - $ref: '#/components/schemas/RecipeCancelEvent'
+        - $ref: '#/components/schemas/RecipeActiveEvent'
+        - $ref: '#/components/schemas/AddIngredientRecipeEvent'
+        - $ref: '#/components/schemas/AddInstructionRecipeEvent'
+      discriminator:
+        propertyName: eventType
+        mapping:
+          com.example.recipe.create.v1: '#/components/schemas/RecipeCreateEvent'
+          com.example.recipe.cancel.v1: '#/components/schemas/RecipeCancelEvent'
+          com.example.recipe.active.v1: '#/components/schemas/RecipeActiveEvent'
+          com.example.recipe.ingredient.add.v1: '#/components/schemas/AddIngredientRecipeEvent'
+          com.example.recipe.instruction.add.v1: '#/components/schemas/AddInstructionRecipeEvent'
+
+    RecipeCreateEvent:
+      allOf:
+        - $ref: '#/components/schemas/CloudEvent'
+      type: object
+      properties:
+        recipeId:
+          type: string
+          description: Identifier of the recipe.
+          example: "S0118896-1-1-20231218-1645"
+        cookingTime:
+          type: integer
+          format: int64
+          description: Cooking time in milliseconds.
+          example: "1705571701250"
+        duration:
+          type: integer
+          format: int64
+          description: Duration in milliseconds.
+          example: "1705571701250"
+
+    RecipeCancelEvent:
+      allOf:
+        - $ref: '#/components/schemas/CloudEvent'
+      type: object
+      required:
+        - recipeId
+        - timestamp
+      properties:
+        recipeId:
+          type: string
+          description: Identifier of the recipe.
+          example: "S0118896-1-1-20231218-1645"
+        timestamp:
+          type: integer
+          format: int64
+          description: Timestamp of the cancelation in milliseconds.
+          example: "1705571701250"
+
+    RecipeActiveEvent:
+      allOf:
+        - $ref: '#/components/schemas/CloudEvent'
+      type: object
+      required:
+        - recipeId
+        - timestamp
+      properties:
+        recipeId:
+          type: string
+          description: Identifier of the recipe.
+          example: "S0118896-1-1-20231218-1645"
+        timestamp:
+          type: integer
+          format: int64
+          description: Timestamp of the reactivation in milliseconds.
+          example: "1705571701250"
+
+    AddIngredientRecipeEvent:
+      allOf:
+        - $ref: '#/components/schemas/CloudEvent'
+      type: object
+      required:
+        - recipeId
+        - ingredient
+      properties:
+        recipeId:
+          type: string
+          description: Identifier of the recipe.
+          example: "S0118896-1-1-20231218-1645"
+        ingredient:
+          type:
+          $ref: '#/components/schemas/Ingredient'
+
+    AddInstructionRecipeEvent:
+      allOf:
+        - $ref: '#/components/schemas/CloudEvent'
+      type: object
+      required:
+        - recipeId
+        - instruction
+      properties:
+        recipeId:
+          type: string
+          description: Identifier of the recipe.
+          example: "S0118896-1-1-20231218-1645"
+        instruction:
+          type:
+          $ref: '#/components/schemas/Instruction'
+
+    ##### Response Events ######
+
+    ResponseCloudEvent:
+      required:
+        - eventPassport
+      type: object
+      properties:
+        eventPassport:
+          type:
+          $ref: '#/components/schemas/EventPassport'
+        status:
+          type:
+          $ref: '#/components/schemas/ResponseStatus'
+
+    ResponseStatus:
+      type: object
+      properties:
+        code:
+          type: string
+          example: "00"
+        description:
+          type: string
+          example: "OK"
+
+    RecipeCreateResponse:
+      allOf:
+        - $ref: '#/components/schemas/ResponseCloudEvent'
+      type: object
+      properties:
+        recipe:
+          type:
+          $ref: '#/components/schemas/Recipe'
+
+    ############################
+    ######## Resources #########
+    ############################
+    Recipe:
+      type: object
+      properties:
+        id:
+          type: string
+        ingredients:
+          type: array
+          items:
+            $ref: '#/components/schemas/Ingredient'
+        cookingTime:
+          type: integer
+          format: int64
+          description: Cooking time in milliseconds.
+          example: "1705571701250"
+        duration:
+          type: integer
+          format: int64
+          description: Duration in milliseconds.
+          example: "1705571701250"
+        status:
+          type: string
+          enum:
+            - Planned
+            - InProgress
+            - Executed
+            - Canceled
+          description: State of the recipe.
+          example: "Executed"
+        instructions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Instruction'
+
+    Ingredient:
+      required:
+        - id
+        - name
+      type: object
+      properties:
+        id:
+          type: string
+          description: Identifier of the ingredient.
+          example: "S0118896-20231218"
+        name:
+          type: string
+          description: Name of the ingredient.
+          example: "FR013-FR084-FR031-FR033 / FR033-FR031-FR084-FR013"
+        quantity:
+          type: integer
+          format: int32
+          description: Quantity.
+          example: "1"
+        unit:
+          type: string
+          description: Quantity unit.
+          example: "gram"
+        type:
+          type: string
+          description: Ingredient type.
+          example: "toto"
+
+    Instruction:
+      type: object
+      properties:
+        type:
+          type: string
+          description: Instruction type.
+          example: "toto"
+        explanation:
+          type: string
+          description: Description.
+          example: "Description"
