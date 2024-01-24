@@ -125,13 +125,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/RecipeCreateResponse'
 
-  /event#recipe.cancel.v1:
+  /event#recipe.delete.v1:
     post:
       tags:
         - Event
-      summary: com.example.recipe.cancel.v1
-      description: Cancel a recipe
-      operationId: cancelRecipe
+      summary: com.example.recipe.delete.v1
+      description: Delete a recipe
+      operationId: deleteRecipe
       parameters:
         - $ref: '#/components/parameters/contentTypeHeader'
         - $ref: '#/components/parameters/idHeader'
@@ -147,7 +147,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/RecipeCancelEvent'
+              $ref: '#/components/schemas/RecipeDeleteEvent'
         required: true
       responses:
         '200':
@@ -157,13 +157,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/ResponseCloudEvent'
 
-  /event#recipe.active.v1:
+  /event#recipe.start.v1:
     post:
       tags:
         - Event
-      summary: com.example.recipe.active.v1
-      description: (Re)Activate a recipe
-      operationId: activateRecipe
+      summary: com.example.recipe.start.v1
+      description: Start a recipe
+      operationId: startRecipe
       parameters:
         - $ref: '#/components/parameters/contentTypeHeader'
         - $ref: '#/components/parameters/idHeader'
@@ -179,7 +179,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/RecipeActiveEvent'
+              $ref: '#/components/schemas/RecipeStartEvent'
         required: true
       responses:
         '200':
@@ -359,16 +359,16 @@ components:
       oneOf:
         - $ref: '#/components/schemas/CloudEvent'
         - $ref: '#/components/schemas/RecipeCreateEvent'
-        - $ref: '#/components/schemas/RecipeCancelEvent'
-        - $ref: '#/components/schemas/RecipeActiveEvent'
+        - $ref: '#/components/schemas/RecipeDeleteEvent'
+        - $ref: '#/components/schemas/RecipeStartEvent'
         - $ref: '#/components/schemas/AddIngredientRecipeEvent'
         - $ref: '#/components/schemas/AddInstructionRecipeEvent'
       discriminator:
         propertyName: eventType
         mapping:
           com.example.recipe.create.v1: '#/components/schemas/RecipeCreateEvent'
-          com.example.recipe.cancel.v1: '#/components/schemas/RecipeCancelEvent'
-          com.example.recipe.active.v1: '#/components/schemas/RecipeActiveEvent'
+          com.example.recipe.delete.v1: '#/components/schemas/RecipeDeleteEvent'
+          com.example.recipe.start.v1: '#/components/schemas/RecipeStartEvent'
           com.example.recipe.ingredient.add.v1: '#/components/schemas/AddIngredientRecipeEvent'
           com.example.recipe.instruction.add.v1: '#/components/schemas/AddInstructionRecipeEvent'
 
@@ -392,7 +392,7 @@ components:
           description: Duration in milliseconds.
           example: "1705571701250"
 
-    RecipeCancelEvent:
+    RecipeDeleteEvent:
       allOf:
         - $ref: '#/components/schemas/CloudEvent'
       type: object
@@ -407,10 +407,10 @@ components:
         timestamp:
           type: integer
           format: int64
-          description: Timestamp of the cancelation in milliseconds.
+          description: Timestamp of the deletion in milliseconds.
           example: "1705571701250"
 
-    RecipeActiveEvent:
+    RecipeStartEvent:
       allOf:
         - $ref: '#/components/schemas/CloudEvent'
       type: object
@@ -425,7 +425,7 @@ components:
         timestamp:
           type: integer
           format: int64
-          description: Timestamp of the reactivation in milliseconds.
+          description: Timestamp of the recipe start in milliseconds.
           example: "1705571701250"
 
     AddIngredientRecipeEvent:
@@ -520,8 +520,7 @@ components:
           enum:
             - Planned
             - InProgress
-            - Executed
-            - Canceled
+            - Ready
           description: State of the recipe.
           example: "Executed"
         instructions:
