@@ -1,0 +1,1154 @@
+{
+	"info": {
+		"_postman_id": "82f23415-554d-4d14-8577-f54a9da60512",
+		"name": "RecipeAPIExamples",
+		"description": "Oracle Recipe API\n\nSome useful links:\n\nContact Support:\n Email: marion.delmas12@gmail.com",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "30307040-82f23415-554d-4d14-8577-f54a9da60512"
+	},
+	"item": [
+		{
+			"name": "recipes",
+			"item": [
+				{
+					"name": "{recipeId}",
+					"item": [
+						{
+							"name": "Get a recipe",
+							"id": "28011815-de86-4ecd-be75-e4b25b3c4354",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/recipes/:recipeId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"recipes",
+										":recipeId"
+									],
+									"variable": [
+										{
+											"key": "recipeId",
+											"value": "<string>",
+											"description": "(Required) Recipe ID"
+										}
+									]
+								},
+								"description": "Get an existing recipe by Id"
+							},
+							"response": [
+								{
+									"id": "8db93312-f4b9-4371-9f41-97a1927fd891",
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/recipes/:recipeId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"recipes",
+												":recipeId"
+											],
+											"variable": [
+												{
+													"key": "recipeId"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"<string>\",\n  \"ingredients\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"unit\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"unit\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ],\n  \"cookingTime\": \"<long>\",\n  \"duration\": \"<long>\",\n  \"status\": \"Planned\",\n  \"instructions\": [\n    {\n      \"type\": \"<string>\",\n      \"explanation\": \"<string>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"explanation\": \"<string>\"\n    }\n  ]\n}"
+								}
+							]
+						}
+					],
+					"id": "653d301a-4597-419b-9a4b-883d3acbea89"
+				},
+				{
+					"name": "Get recipes",
+					"id": "d5cd2353-c1b0-4de5-bada-86be07eced31",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/recipes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"recipes"
+							]
+						},
+						"description": "Get recipes"
+					},
+					"response": [
+						{
+							"id": "7c150160-73af-48d9-89ed-7a36010367d5",
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/recipes",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"recipes"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"id\": \"<string>\",\n    \"ingredients\": [\n      {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"quantity\": \"<integer>\",\n        \"unit\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"quantity\": \"<integer>\",\n        \"unit\": \"<string>\",\n        \"type\": \"<string>\"\n      }\n    ],\n    \"cookingTime\": \"<long>\",\n    \"duration\": \"<long>\",\n    \"status\": \"Ready\",\n    \"instructions\": [\n      {\n        \"type\": \"<string>\",\n        \"explanation\": \"<string>\"\n      },\n      {\n        \"type\": \"<string>\",\n        \"explanation\": \"<string>\"\n      }\n    ]\n  },\n  {\n    \"id\": \"<string>\",\n    \"ingredients\": [\n      {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"quantity\": \"<integer>\",\n        \"unit\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"quantity\": \"<integer>\",\n        \"unit\": \"<string>\",\n        \"type\": \"<string>\"\n      }\n    ],\n    \"cookingTime\": \"<long>\",\n    \"duration\": \"<long>\",\n    \"status\": \"Planned\",\n    \"instructions\": [\n      {\n        \"type\": \"<string>\",\n        \"explanation\": \"<string>\"\n      },\n      {\n        \"type\": \"<string>\",\n        \"explanation\": \"<string>\"\n      }\n    ]\n  }\n]"
+						}
+					]
+				}
+			],
+			"id": "51b24b1b-a73b-4a9a-b525-f4a6416cb9e0"
+		},
+		{
+			"name": "event",
+			"item": [
+				{
+					"name": "Process CloudEvent",
+					"id": "36c70243-3a56-4637-955b-0ee76308991f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "(Required) ",
+								"key": "ce-id",
+								"value": "<string>"
+							},
+							{
+								"key": "ce-source",
+								"value": "<string>"
+							},
+							{
+								"key": "ce-specversion",
+								"value": "<string>"
+							},
+							{
+								"description": "(Required) ",
+								"key": "ce-type",
+								"value": "<string>"
+							},
+							{
+								"key": "ce-dataschema",
+								"value": "<string>"
+							},
+							{
+								"key": "ce-subject",
+								"value": "<string>"
+							},
+							{
+								"key": "ce-time",
+								"value": "<dateTime>"
+							},
+							{
+								"key": "ce-correlationid",
+								"value": "<string>"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"eventType\": \"<string>\",\n  \"eventPassport\": {\n    \"eventUid\": \"<string>\",\n    \"eventHappeningTime\": \"<dateTime>\",\n    \"eventSource\": \"<string>\",\n    \"externalId\": \"<string>\"\n  }\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/event",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"event"
+							]
+						},
+						"description": "Process CloudEvent"
+					},
+					"response": [
+						{
+							"id": "4c74dc91-cfb2-4cd0-869c-b6e6c9ebd3e6",
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) ",
+										"key": "ce-id",
+										"value": "<string>"
+									},
+									{
+										"key": "ce-source",
+										"value": "<string>"
+									},
+									{
+										"key": "ce-specversion",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) ",
+										"key": "ce-type",
+										"value": "<string>"
+									},
+									{
+										"key": "ce-dataschema",
+										"value": "<string>"
+									},
+									{
+										"key": "ce-subject",
+										"value": "<string>"
+									},
+									{
+										"key": "ce-time",
+										"value": "<dateTime>"
+									},
+									{
+										"key": "ce-correlationid",
+										"value": "<string>"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"eventType\": \"<string>\",\n  \"eventPassport\": {\n    \"eventUid\": \"<string>\",\n    \"eventHappeningTime\": \"<dateTime>\",\n    \"eventSource\": \"<string>\",\n    \"externalId\": \"<string>\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/event",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"event"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"eventPassport\": {\n    \"eventUid\": \"<string>\",\n    \"eventHappeningTime\": \"<dateTime>\",\n    \"eventSource\": \"<string>\",\n    \"externalId\": \"<string>\"\n  },\n  \"status\": {\n    \"code\": \"<string>\",\n    \"description\": \"<string>\"\n  }\n}"
+						}
+					]
+				}
+			],
+			"id": "5c4c44a1-3ac9-4fcb-b971-96476e88377b"
+		},
+		{
+			"name": "event#recipe.create.v1",
+			"item": [
+				{
+					"name": "com.example.recipe.create.v1",
+					"id": "a4264f85-6f6f-4260-934d-15f090a889f4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "(Required) ",
+								"key": "ce-id",
+								"value": "<string>"
+							},
+							{
+								"key": "ce-source",
+								"value": "<string>"
+							},
+							{
+								"key": "ce-specversion",
+								"value": "<string>"
+							},
+							{
+								"description": "(Required) ",
+								"key": "ce-type",
+								"value": "<string>"
+							},
+							{
+								"key": "ce-dataschema",
+								"value": "<string>"
+							},
+							{
+								"key": "ce-subject",
+								"value": "<string>"
+							},
+							{
+								"key": "ce-time",
+								"value": "<dateTime>"
+							},
+							{
+								"key": "ce-correlationid",
+								"value": "<string>"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"eventType\": \"<string>\",\n  \"eventPassport\": {\n    \"eventUid\": \"<string>\",\n    \"eventHappeningTime\": \"<dateTime>\",\n    \"eventSource\": \"<string>\",\n    \"externalId\": \"<string>\"\n  },\n  \"recipeId\": \"ad voluptate esse occaecat\",\n  \"cookingTime\": -91279167,\n  \"duration\": -76525002\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/event#recipe.create.v1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"event"
+							],
+							"hash": "recipe.create.v1"
+						},
+						"description": "Create a recipe"
+					},
+					"response": [
+						{
+							"id": "52db5544-4925-4b96-896f-25d4b93a6f19",
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) ",
+										"key": "ce-id",
+										"value": "<string>"
+									},
+									{
+										"key": "ce-source",
+										"value": "<string>"
+									},
+									{
+										"key": "ce-specversion",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) ",
+										"key": "ce-type",
+										"value": "<string>"
+									},
+									{
+										"key": "ce-dataschema",
+										"value": "<string>"
+									},
+									{
+										"key": "ce-subject",
+										"value": "<string>"
+									},
+									{
+										"key": "ce-time",
+										"value": "<dateTime>"
+									},
+									{
+										"key": "ce-correlationid",
+										"value": "<string>"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"eventType\": \"<string>\",\n  \"eventPassport\": {\n    \"eventUid\": \"<string>\",\n    \"eventHappeningTime\": \"<dateTime>\",\n    \"eventSource\": \"<string>\",\n    \"externalId\": \"<string>\"\n  },\n  \"recipeId\": \"ad voluptate esse occaecat\",\n  \"cookingTime\": -91279167,\n  \"duration\": -76525002\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/event#recipe.create.v1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"event"
+									],
+									"hash": "recipe.create.v1"
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"eventPassport\": {\n    \"eventUid\": \"<string>\",\n    \"eventHappeningTime\": \"<dateTime>\",\n    \"eventSource\": \"<string>\",\n    \"externalId\": \"<string>\"\n  },\n  \"recipe\": {},\n  \"status\": {\n    \"code\": \"<string>\",\n    \"description\": \"<string>\"\n  }\n}"
+						}
+					]
+				}
+			],
+			"id": "da915dfb-a1b4-4ff4-aef8-cd1eb75160ee"
+		},
+		{
+			"name": "event#recipe.delete.v1",
+			"item": [
+				{
+					"name": "com.example.recipe.delete.v1",
+					"id": "b1b03c79-393d-4754-8d77-d024da4c3b62",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "(Required) ",
+								"key": "ce-id",
+								"value": "<string>"
+							},
+							{
+								"key": "ce-source",
+								"value": "<string>"
+							},
+							{
+								"key": "ce-specversion",
+								"value": "<string>"
+							},
+							{
+								"description": "(Required) ",
+								"key": "ce-type",
+								"value": "<string>"
+							},
+							{
+								"key": "ce-dataschema",
+								"value": "<string>"
+							},
+							{
+								"key": "ce-subject",
+								"value": "<string>"
+							},
+							{
+								"key": "ce-time",
+								"value": "<dateTime>"
+							},
+							{
+								"key": "ce-correlationid",
+								"value": "<string>"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"eventPassport\": {\n    \"eventUid\": \"<string>\",\n    \"eventHappeningTime\": \"<dateTime>\",\n    \"eventSource\": \"<string>\",\n    \"externalId\": \"<string>\"\n  },\n  \"eventType\": \"<string>\",\n  \"recipeId\": \"do officia ullamco\",\n  \"timestamp\": -12870098\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/event#recipe.delete.v1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"event"
+							],
+							"hash": "recipe.delete.v1"
+						},
+						"description": "Delete a recipe"
+					},
+					"response": [
+						{
+							"id": "c696020e-5838-4501-9251-44a9f82959f2",
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) ",
+										"key": "ce-id",
+										"value": "<string>"
+									},
+									{
+										"key": "ce-source",
+										"value": "<string>"
+									},
+									{
+										"key": "ce-specversion",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) ",
+										"key": "ce-type",
+										"value": "<string>"
+									},
+									{
+										"key": "ce-dataschema",
+										"value": "<string>"
+									},
+									{
+										"key": "ce-subject",
+										"value": "<string>"
+									},
+									{
+										"key": "ce-time",
+										"value": "<dateTime>"
+									},
+									{
+										"key": "ce-correlationid",
+										"value": "<string>"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"eventPassport\": {\n    \"eventUid\": \"<string>\",\n    \"eventHappeningTime\": \"<dateTime>\",\n    \"eventSource\": \"<string>\",\n    \"externalId\": \"<string>\"\n  },\n  \"eventType\": \"<string>\",\n  \"recipeId\": \"do officia ullamco\",\n  \"timestamp\": -12870098\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/event#recipe.delete.v1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"event"
+									],
+									"hash": "recipe.delete.v1"
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"eventPassport\": {\n    \"eventUid\": \"<string>\",\n    \"eventHappeningTime\": \"<dateTime>\",\n    \"eventSource\": \"<string>\",\n    \"externalId\": \"<string>\"\n  },\n  \"status\": {\n    \"code\": \"<string>\",\n    \"description\": \"<string>\"\n  }\n}"
+						}
+					]
+				}
+			],
+			"id": "2871d5e5-3ad9-4082-833b-06e7d6d4dcfc"
+		},
+		{
+			"name": "event#recipe.start.v1",
+			"item": [
+				{
+					"name": "com.example.recipe.start.v1",
+					"id": "4a0060f5-0acb-4bb0-adbf-9bb53721d2d6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "(Required) ",
+								"key": "ce-id",
+								"value": "<string>"
+							},
+							{
+								"key": "ce-source",
+								"value": "<string>"
+							},
+							{
+								"key": "ce-specversion",
+								"value": "<string>"
+							},
+							{
+								"description": "(Required) ",
+								"key": "ce-type",
+								"value": "<string>"
+							},
+							{
+								"key": "ce-dataschema",
+								"value": "<string>"
+							},
+							{
+								"key": "ce-subject",
+								"value": "<string>"
+							},
+							{
+								"key": "ce-time",
+								"value": "<dateTime>"
+							},
+							{
+								"key": "ce-correlationid",
+								"value": "<string>"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"eventPassport\": {\n    \"eventUid\": \"<string>\",\n    \"eventHappeningTime\": \"<dateTime>\",\n    \"eventSource\": \"<string>\",\n    \"externalId\": \"<string>\"\n  },\n  \"eventType\": \"<string>\",\n  \"recipeId\": \"dolor nulla enim\",\n  \"timestamp\": -80589013\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/event#recipe.start.v1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"event"
+							],
+							"hash": "recipe.start.v1"
+						},
+						"description": "Start a recipe"
+					},
+					"response": [
+						{
+							"id": "0d30d1e0-9bd6-4222-bed8-8a4382df45a1",
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) ",
+										"key": "ce-id",
+										"value": "<string>"
+									},
+									{
+										"key": "ce-source",
+										"value": "<string>"
+									},
+									{
+										"key": "ce-specversion",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) ",
+										"key": "ce-type",
+										"value": "<string>"
+									},
+									{
+										"key": "ce-dataschema",
+										"value": "<string>"
+									},
+									{
+										"key": "ce-subject",
+										"value": "<string>"
+									},
+									{
+										"key": "ce-time",
+										"value": "<dateTime>"
+									},
+									{
+										"key": "ce-correlationid",
+										"value": "<string>"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"eventPassport\": {\n    \"eventUid\": \"<string>\",\n    \"eventHappeningTime\": \"<dateTime>\",\n    \"eventSource\": \"<string>\",\n    \"externalId\": \"<string>\"\n  },\n  \"eventType\": \"<string>\",\n  \"recipeId\": \"dolor nulla enim\",\n  \"timestamp\": -80589013\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/event#recipe.start.v1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"event"
+									],
+									"hash": "recipe.start.v1"
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"eventPassport\": {\n    \"eventUid\": \"<string>\",\n    \"eventHappeningTime\": \"<dateTime>\",\n    \"eventSource\": \"<string>\",\n    \"externalId\": \"<string>\"\n  },\n  \"status\": {\n    \"code\": \"<string>\",\n    \"description\": \"<string>\"\n  }\n}"
+						}
+					]
+				}
+			],
+			"id": "25929908-352e-4b9c-a9c5-8b9cbb60a02e"
+		},
+		{
+			"name": "event#recipe.ingredient.add.v1",
+			"item": [
+				{
+					"name": "com.example.recipe.ingredient.add.v1",
+					"id": "3a666347-f249-4927-b8e3-cc9136ebb36d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "(Required) ",
+								"key": "ce-id",
+								"value": "<string>"
+							},
+							{
+								"key": "ce-source",
+								"value": "<string>"
+							},
+							{
+								"key": "ce-specversion",
+								"value": "<string>"
+							},
+							{
+								"description": "(Required) ",
+								"key": "ce-type",
+								"value": "<string>"
+							},
+							{
+								"key": "ce-dataschema",
+								"value": "<string>"
+							},
+							{
+								"key": "ce-subject",
+								"value": "<string>"
+							},
+							{
+								"key": "ce-time",
+								"value": "<dateTime>"
+							},
+							{
+								"key": "ce-correlationid",
+								"value": "<string>"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"eventPassport\": {\n    \"eventUid\": \"<string>\",\n    \"eventHappeningTime\": \"<dateTime>\",\n    \"eventSource\": \"<string>\",\n    \"externalId\": \"<string>\"\n  },\n  \"eventType\": \"<string>\",\n  \"ingredient\": {},\n  \"recipeId\": \"magna velit\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/event#recipe.ingredient.add.v1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"event"
+							],
+							"hash": "recipe.ingredient.add.v1"
+						},
+						"description": "Add an ingredient to a recipe."
+					},
+					"response": [
+						{
+							"id": "3f93cbab-aefa-4f17-ae59-ade8291a3de1",
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) ",
+										"key": "ce-id",
+										"value": "<string>"
+									},
+									{
+										"key": "ce-source",
+										"value": "<string>"
+									},
+									{
+										"key": "ce-specversion",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) ",
+										"key": "ce-type",
+										"value": "<string>"
+									},
+									{
+										"key": "ce-dataschema",
+										"value": "<string>"
+									},
+									{
+										"key": "ce-subject",
+										"value": "<string>"
+									},
+									{
+										"key": "ce-time",
+										"value": "<dateTime>"
+									},
+									{
+										"key": "ce-correlationid",
+										"value": "<string>"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"eventPassport\": {\n    \"eventUid\": \"<string>\",\n    \"eventHappeningTime\": \"<dateTime>\",\n    \"eventSource\": \"<string>\",\n    \"externalId\": \"<string>\"\n  },\n  \"eventType\": \"<string>\",\n  \"ingredient\": {},\n  \"recipeId\": \"magna velit\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/event#recipe.ingredient.add.v1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"event"
+									],
+									"hash": "recipe.ingredient.add.v1"
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"eventPassport\": {\n    \"eventUid\": \"<string>\",\n    \"eventHappeningTime\": \"<dateTime>\",\n    \"eventSource\": \"<string>\",\n    \"externalId\": \"<string>\"\n  },\n  \"status\": {\n    \"code\": \"<string>\",\n    \"description\": \"<string>\"\n  }\n}"
+						}
+					]
+				}
+			],
+			"id": "c95fed44-b75f-4004-916c-cbeafbf514e6"
+		},
+		{
+			"name": "event#recipe.instruction.add.v1",
+			"item": [
+				{
+					"name": "com.example.recipe.instruction.add.v1",
+					"id": "f9a7b9a2-1d35-49b2-8cf8-25c417428073",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "(Required) ",
+								"key": "ce-id",
+								"value": "<string>"
+							},
+							{
+								"key": "ce-source",
+								"value": "<string>"
+							},
+							{
+								"key": "ce-specversion",
+								"value": "<string>"
+							},
+							{
+								"description": "(Required) ",
+								"key": "ce-type",
+								"value": "<string>"
+							},
+							{
+								"key": "ce-dataschema",
+								"value": "<string>"
+							},
+							{
+								"key": "ce-subject",
+								"value": "<string>"
+							},
+							{
+								"key": "ce-time",
+								"value": "<dateTime>"
+							},
+							{
+								"key": "ce-correlationid",
+								"value": "<string>"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"eventPassport\": {\n    \"eventUid\": \"<string>\",\n    \"eventHappeningTime\": \"<dateTime>\",\n    \"eventSource\": \"<string>\",\n    \"externalId\": \"<string>\"\n  },\n  \"eventType\": \"<string>\",\n  \"instruction\": {},\n  \"recipeId\": \"ex aliquip occaecat cillum Excepteur\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/event#recipe.instruction.add.v1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"event"
+							],
+							"hash": "recipe.instruction.add.v1"
+						},
+						"description": "Add an instruction to a recipe."
+					},
+					"response": [
+						{
+							"id": "0568d9fd-6629-4d92-a887-b8a81d241058",
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) ",
+										"key": "ce-id",
+										"value": "<string>"
+									},
+									{
+										"key": "ce-source",
+										"value": "<string>"
+									},
+									{
+										"key": "ce-specversion",
+										"value": "<string>"
+									},
+									{
+										"description": "(Required) ",
+										"key": "ce-type",
+										"value": "<string>"
+									},
+									{
+										"key": "ce-dataschema",
+										"value": "<string>"
+									},
+									{
+										"key": "ce-subject",
+										"value": "<string>"
+									},
+									{
+										"key": "ce-time",
+										"value": "<dateTime>"
+									},
+									{
+										"key": "ce-correlationid",
+										"value": "<string>"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"eventPassport\": {\n    \"eventUid\": \"<string>\",\n    \"eventHappeningTime\": \"<dateTime>\",\n    \"eventSource\": \"<string>\",\n    \"externalId\": \"<string>\"\n  },\n  \"eventType\": \"<string>\",\n  \"instruction\": {},\n  \"recipeId\": \"ex aliquip occaecat cillum Excepteur\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/event#recipe.instruction.add.v1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"event"
+									],
+									"hash": "recipe.instruction.add.v1"
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"eventPassport\": {\n    \"eventUid\": \"<string>\",\n    \"eventHappeningTime\": \"<dateTime>\",\n    \"eventSource\": \"<string>\",\n    \"externalId\": \"<string>\"\n  },\n  \"status\": {\n    \"code\": \"<string>\",\n    \"description\": \"<string>\"\n  }\n}"
+						}
+					]
+				}
+			],
+			"id": "99194cb1-6049-44bf-8883-7511c6f9550d"
+		}
+	],
+	"variable": [
+		{
+			"id": "a4800383-00b2-41e7-b0c2-c1e837d66325",
+			"key": "baseUrl",
+			"value": "https://dev/api/1"
+		}
+	]
+}
