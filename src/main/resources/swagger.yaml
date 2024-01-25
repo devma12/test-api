@@ -130,7 +130,7 @@ paths:
       tags:
         - Event
       summary: com.example.recipe.delete.v1
-      description: Delete a recipe
+      description: Test a recipe
       operationId: deleteRecipe
       parameters:
         - $ref: '#/components/parameters/contentTypeHeader'
