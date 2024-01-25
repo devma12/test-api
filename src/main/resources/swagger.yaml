@@ -381,11 +381,11 @@ components:
           type: string
           description: Identifier of the recipe.
           example: "S0118896-1-1-20231218-1645"
-        cookingTime:
+        cookingDuration:
           type: integer
-          format: int64
-          description: Cooking time in milliseconds.
-          example: "1705571701250"
+          format: int32
+          description: Cooking duration in minutes.
+          example: "60"
         duration:
           type: integer
           format: int64
@@ -505,11 +505,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Ingredient'
-        cookingTime:
-          type: integer
-          format: int64
-          description: Cooking time in milliseconds.
-          example: "1705571701250"
         duration:
           type: integer
           format: int64
@@ -527,6 +522,9 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Instruction'
+        cooking:
+          type:
+          $ref: '#/components/schemas/Cooking'
 
     Ingredient:
       required:
@@ -567,3 +565,21 @@ components:
           type: string
           description: Description.
           example: "Description"
+
+    Cooking:
+      type: object
+      properties:
+        temperature:
+          type: integer
+          format: int32
+          description: Cooking temperature.
+          example: "180"
+        temperatureUnit:
+          type: string
+          description: Cooking temperature unit.
+          example: "°C"
+        duration:
+          type: integer
+          format: int32
+          description: Cooking duration in minutes.
+          example: "60"
