@@ -335,10 +335,10 @@ components:
           $ref: '#/components/schemas/EventPassport'
     EventPassport:
       required:
-        - eventUid
+        - uid
       type: object
       properties:
-        eventUid:
+        uid:
           type: string
           example: "f17de195-b297-49bd-89f5-6f78bcbf5694"
         eventHappeningTime:

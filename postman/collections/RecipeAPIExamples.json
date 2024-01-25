@@ -375,7 +375,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"eventType\": \"<string>\",\n  \"eventPassport\": {\n    \"eventUid\": \"<string>\",\n    \"eventHappeningTime\": \"<dateTime>\",\n    \"eventSource\": \"<string>\",\n    \"externalId\": \"<string>\"\n  },\n  \"recipeId\": \"ad voluptate esse occaecat\",\n  \"cookingTime\": -91279167,\n  \"duration\": -76525002\n}",
+							"raw": "{\n  \"eventType\": \"<string>\",\n  \"eventPassport\": {\n    \"eventUid\": \"toto\",\n    \"eventHappeningTime\": \"<dateTime>\",\n    \"eventSource\": \"<string>\",\n    \"externalId\": \"<string>\"\n  },\n  \"recipeId\": \"ad voluptate esse occaecat\",\n  \"cookingTime\": -91279167,\n  \"duration\": -76525002\n}",
 							"options": {
 								"raw": {
 									"headerFamily": "json",
