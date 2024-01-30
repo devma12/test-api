@@ -442,7 +442,7 @@ components:
           example: "S0118896-1-1-20231218-1645"
         ingredient:
           type:
-          $ref: '#/components/schemas/Ingredient'
+          $ref: 'https://raw.githubusercontent.com/devma12/test-api/postman/src/main/resources/schemas/ingredient.schema.json'
 
     AddInstructionRecipeEvent:
       allOf:
@@ -504,7 +504,7 @@ components:
         ingredients:
           type: array
           items:
-            $ref: '#/components/schemas/Ingredient'
+            $ref: 'https://raw.githubusercontent.com/devma12/test-api/postman/src/main/resources/schemas/ingredient.schema.json'
         duration:
           type: integer
           format: int64
@@ -526,33 +526,33 @@ components:
           type:
           $ref: '#/components/schemas/Cooking'
 
-    Ingredient:
-      required:
-        - id
-        - name
-      type: object
-      properties:
-        id:
-          type: string
-          description: Identifier of the ingredient.
-          example: "S0118896-20231218"
-        name:
-          type: string
-          description: Name of the ingredient.
-          example: "FR013-FR084-FR031-FR033 / FR033-FR031-FR084-FR013"
-        quantity:
-          type: integer
-          format: int32
-          description: Quantity.
-          example: "1"
-        unit:
-          type: string
-          description: Quantity unit.
-          example: "gram"
-        type:
-          type: string
-          description: Ingredient type.
-          example: "toto"
+#    Ingredient:
+#      required:
+#        - id
+#        - name
+#      type: object
+#      properties:
+#        id:
+#          type: string
+#          description: Identifier of the ingredient.
+#          example: "S0118896-20231218"
+#        name:
+#          type: string
+#          description: Name of the ingredient.
+#          example: "FR013-FR084-FR031-FR033 / FR033-FR031-FR084-FR013"
+#        quantity:
+#          type: integer
+#          format: int32
+#          description: Quantity.
+#          example: "1"
+#        unit:
+#          type: string
+#          description: Quantity unit.
+#          example: "gram"
+#        type:
+#          type: string
+#          description: Ingredient type.
+#          example: "toto"
 
     Instruction:
       type: object
