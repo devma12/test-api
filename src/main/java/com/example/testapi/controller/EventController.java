@@ -3,7 +3,6 @@ package com.example.testapi.controller;
 import com.example.testapi.api.EventApi;
 import com.example.testapi.model.EventDTO;
 import com.example.testapi.model.ResponseCloudEventDTO;
-import com.gls.france.test.model.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;

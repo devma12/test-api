@@ -88,8 +88,8 @@
 							<generatorName>spring</generatorName>
 							<inputSpec>${project.basedir}/src/main/resources/swagger.yaml</inputSpec>
 							<output>${project.build.directory}/generated-sources/</output>
-							<apiPackage>com.gls.france.test.api</apiPackage>
-							<modelPackage>com.gls.france.test.model</modelPackage>
+							<apiPackage>com.example.testapi.api</apiPackage>
+							<modelPackage>com.example.testapi.model</modelPackage>
 							<modelNameSuffix>DTO</modelNameSuffix>
 							<generateSupportingFiles>false</generateSupportingFiles>
 							<configOptions>
