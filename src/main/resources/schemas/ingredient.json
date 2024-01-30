@@ -1,5 +1,5 @@
 {
-  "$id": "https://example.com/ingredient.schema.json",
+  "$id": "https://example.com/ingredient.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Ingredient",
   "description": "Object describing an ingredient of a recipe",
