@@ -1,35 +1,33 @@
 {
-  "$id": "https://example.com/ingredient.json",
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Ingredient",
-  "description": "Object describing an ingredient of a recipe",
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "Identifier of the ingredient."
+  "Ingredient": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string",
+        "description": "Identifier of the ingredient."
+      },
+      "name": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Name of the ingredient."
+      },
+      "quantity": {
+        "type": "integer",
+        "format": "int32",
+        "description": "Quantity"
+      },
+      "unit": {
+        "type": "string",
+        "description": "Quantity unit"
+      },
+      "type": {
+        "type": "string",
+        "description": "Ingredient type"
+      }
     },
-    "name": {
-      "type": "string",
-      "format": "date-time",
-      "description": "Name of the ingredient."
-    },
-    "quantity": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Quantity"
-    },
-    "unit": {
-      "type": "string",
-      "description": "Quantity unit"
-    },
-    "type": {
-      "type": "string",
-      "description": "Ingredient type"
-    }
-  },
-  "required": [
-    "id",
-    "name"
-  ]
+    "required": [
+      "id",
+      "name"
+    ]
+  }
 }
