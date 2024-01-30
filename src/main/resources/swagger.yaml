@@ -332,26 +332,26 @@ components:
           type: string
         eventPassport:
           type:
-          $ref: '#/components/schemas/EventPassport'
-    EventPassport:
-      required:
-        - eventUid
-      type: object
-      properties:
-        eventUid:
-          type: string
-          example: "f17de195-b297-49bd-89f5-6f78bcbf5694"
-        eventHappeningTime:
-          type: string
-          format: date-time
-          example: "2016-06-29T14:41:36.625Z"
-        eventSource:
-          type: string
-          example: "grn:anyIdIrovidedByMechatronicsThatCouldIdentifyTheProgramNameTheInstanceAndTheVersion"
-        externalId:
-          type: string
-          example: "d74aa37e-341a-450a-b5b9-27a3995ae89c"
-          description: "Resource id of an external source. Could be C3 ID or AS400 ID."
+          $ref: "https://raw.githubusercontent.com/devma12/test-api/postman/src/main/resources/schemas/event-passport.json#EventPassport"
+#    EventPassport:
+#      required:
+#        - eventUid
+#      type: object
+#      properties:
+#        eventUid:
+#          type: string
+#          example: "f17de195-b297-49bd-89f5-6f78bcbf5694"
+#        eventHappeningTime:
+#          type: string
+#          format: date-time
+#          example: "2016-06-29T14:41:36.625Z"
+#        eventSource:
+#          type: string
+#          example: "grn:anyIdIrovidedByMechatronicsThatCouldIdentifyTheProgramNameTheInstanceAndTheVersion"
+#        externalId:
+#          type: string
+#          example: "d74aa37e-341a-450a-b5b9-27a3995ae89c"
+#          description: "Resource id of an external source. Could be C3 ID or AS400 ID."
 
     ###### Request Events ######
     Event:
@@ -469,7 +469,7 @@ components:
       properties:
         eventPassport:
           type:
-          $ref: '#/components/schemas/EventPassport'
+          $ref: 'https://raw.githubusercontent.com/devma12/test-api/postman/src/main/resources/schemas/event-passport.json#EventPassport'
         status:
           type:
           $ref: '#/components/schemas/ResponseStatus'

@@ -1,0 +1,33 @@
+{
+  "EventPassport": {
+    "type": "object",
+    "properties": {
+      "eventPassport": {
+        "required": [
+          "eventUid"
+        ],
+        "type": "object",
+        "properties": {
+          "eventUid": {
+            "type": "string",
+            "example": "f17de195-b297-49bd-89f5-6f78bcbf5694"
+          },
+          "eventHappeningTime": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2016-06-29T14:41:36.625Z"
+          },
+          "eventSource": {
+            "type": "string",
+            "example": "grn:anyIdIrovidedByMechatronicsThatCouldIdentifyTheProgramNameTheInstanceAndTheVersion"
+          },
+          "externalId": {
+            "type": "string",
+            "example": "d74aa37e-341a-450a-b5b9-27a3995ae89c",
+            "description": "Resource id of an external source. Could be C3 ID or AS400 ID."
+          }
+        }
+      }
+    }
+  }
+}
