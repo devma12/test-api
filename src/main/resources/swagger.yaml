@@ -504,7 +504,7 @@ components:
         ingredients:
           type: array
           items:
-            $ref: 'https://raw.githubusercontent.com/devma12/test-api/postman/src/main/resources/schemas/ingredient.json#/Ingredient'
+            $ref: 'https://raw.githubusercontent.com/devma12/test-api/postman/src/main/resources/schemas/ingredient.json#Ingredient'
         duration:
           type: integer
           format: int64
