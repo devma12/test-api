@@ -14,6 +14,7 @@ files[] = {"id":"30307040-82f23415-554d-4d14-8577-f54a9da60512","path":"RecipeAP
 [config.relations.collections.metaData]
 
 [config.relations.apiDefinition]
+files[] = {"path":"src/main/resources/schemas/ingredient.json","metaData":{}}
 files[] = {"path":"src/main/resources/swagger.yaml","metaData":{}}
 
 [config.relations.apiDefinition.metaData]
